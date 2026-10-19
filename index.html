@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <title>Neural Network Bot</title>
+
+
+    <!-- =========================================
+         FONT AWESOME
+    ========================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+
+        :root {
+
+            --bg: #ffffff;
+            --text: #222222;
+            --secondary: #f3f4f6;
+            --hint: #777777;
+            --blue: #2481cc;
+            --border: rgba(0,0,0,0.08);
+
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+            padding: 0;
+
+            background: var(--bg);
+            color: var(--text);
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0 15px;
+
+            border-bottom:
+                1px solid var(--border);
+
+            position: sticky;
+            top: 0;
+
+            background: var(--bg);
+
+            z-index: 100;
+
+        }
+
+
+        #page-title {
+
+            font-size: 19px;
+            font-weight: 700;
+
+        }
+
+
+        /* =========================================
+           CONTAINER
+        ========================================= */
+
+        .container {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            padding:
+                18px
+                15px
+                100px;
+
+        }
+
+
+        .page {
+            display: none;
+        }
+
+
+        .page.active {
+            display: block;
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================= */
+
+        .intro {
+
+            text-align: center;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .intro-icon {
+
+            font-size: 42px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .intro-title {
+
+            font-size: 23px;
+
+            font-weight: 700;
+
+        }
+
+
+        .intro-description {
+
+            color: var(--hint);
+
+            font-size: 14px;
+
+            margin-top: 6px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =========================================
+           CATEGORY CARDS
+        ========================================= */
+
+        .list-card {
+
+            background: var(--secondary);
+
+            border-radius: 14px;
+
+            padding: 16px;
+
+            margin-bottom: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.15s,
+                opacity 0.15s;
+
+        }
+
+
+        .list-card:active {
+
+            transform: scale(0.98);
+
+            opacity: 0.75;
+
+        }
+
+
+        .list-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 13px;
+
+        }
+
+
+        .list-icon {
+
+            width: 46px;
+            height: 46px;
+
+            border-radius: 12px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+
+            font-size: 23px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .list-name {
+
+            font-size: 16px;
+
+            font-weight: 650;
+
+        }
+
+
+        .list-description {
+
+            color: var(--hint);
+
+            font-size: 13px;
+
+            margin-top: 4px;
+
+            line-height: 1.35;
+
+        }
+
+
+        .arrow {
+
+            color: var(--hint);
+
+            font-size: 22px;
+
+            margin-left: 10px;
+
+        }
+
+
+        /* =========================================
+           BOT CARDS
+        ========================================= */
+
+        .bot-card {
+
+            background: var(--secondary);
+
+            border-radius: 14px;
+
+            padding: 15px;
+
+            margin-bottom: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 12px;
+
+        }
+
+
+        .bot-info {
+
+            min-width: 0;
+
+            flex: 1;
+
+        }
+
+
+        .bot-name {
+
+            font-size: 16px;
+
+            font-weight: 650;
+
+        }
+
+
+        .bot-description {
+
+            color: var(--hint);
+
+            font-size: 13px;
+
+            margin-top: 4px;
+
+            line-height: 1.4;
+
+        }
+
+
+        .open-button {
+
+            background: var(--blue);
+
+            color: white;
+
+            border: none;
+
+            border-radius: 9px;
+
+            padding: 9px 13px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            text-decoration: none;
+
+            white-space: nowrap;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .open-button:active {
+
+            opacity: 0.75;
+
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        .navigation {
+
+            position: fixed;
+
+            bottom: 0;
+
+            left: 0;
+
+            right: 0;
+
+            height: 68px;
+
+            background: var(--bg);
+
+            border-top:
+                1px solid var(--border);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 32px;
+
+            z-index: 1000;
+
+        }
+
+
+        .nav-button {
+
+            border: none;
+
+            background: var(--secondary);
+
+            color: var(--text);
+
+            border-radius: 10px;
+
+            padding: 10px 16px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+        }
+
+
+        .nav-button:active {
+
+            opacity: 0.7;
+
+        }
+
+
+        .nav-button.primary {
+
+            background: var(--blue);
+
+            color: white;
+
+        }
+
+
+        .nav-button:disabled {
+
+            opacity: 0.35;
+
+            cursor: default;
+
+        }
+
+
+        .nav-button i {
+
+            margin-right: 0px;
+
+        }
+
+
+        /* =========================================
+           PAGE COUNTER
+        ========================================= */
+
+        .page-counter {
+
+            text-align: center;
+
+            color: var(--hint);
+
+            font-size: 12px;
+
+            margin-top: 18px;
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 480px) {
+
+            .container {
+
+                padding-left: 12px;
+
+                padding-right: 12px;
+
+            }
+
+
+            .bot-card {
+
+                padding: 13px;
+
+            }
+
+
+            .open-button {
+
+                padding:
+                    8px
+                    10px;
+
+            }
+
+
+            .navigation {
+
+                height: 64px;
+
+            }
+
+
+            .nav-button {
+
+                padding:
+                    9px
+                    13px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================== -->
+
+<header>
+
+    <div id="page-title">
+        Telegram Neural Network Bot
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     CONTENT
+========================================== -->
+
+<div class="container">
+
+
+    <!-- =====================================
+         HOME PAGE
+    ====================================== -->
+
+    <div id="home-page"
+         class="page active">
+
+
+        <div class="intro">
+
+            <div class="intro-icon">
+                🤖
+            </div>
+
+            <div class="intro-title">
+                AI Photo & Video Editor Bot
+            </div>
+
+            <div class="intro-description">
+                🍑 We have Created a New Bot that Deliver Exclusive Links to the Best AI 🧿 Photo & Video Edit Bots. 🍒 No Endless Searching. Stay with Us & Never Get Lost..!! 🎯
+            </div>
+
+        </div>
+
+
+        <!-- Categories are loaded from bots.js -->
+
+        <div id="category-container"></div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         BOT PAGE
+    ====================================== -->
+
+    <div id="bot-page"
+         class="page">
+
+
+        <div id="bot-list-container"></div>
+
+
+        <div id="page-counter"
+             class="page-counter">
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================
+     NAVIGATION
+========================================== -->
+
+<div class="navigation">
+
+
+    <button
+        id="back-button"
+        class="nav-button"
+        onclick="goBack()">
+
+        <i class="fa fa-hand-o-left" style="font-size:24px"></i>
+        
+
+    </button>
+
+
+    <button
+        id="home-button"
+        class="nav-button primary"
+        onclick="goHome()">
+
+        <i class="fa fa-home" style="font-size:24px"></i>
+        
+
+    </button>
+
+
+    <button
+        id="forward-button"
+        class="nav-button"
+        onclick="goForward()">
+
+        
+        <i class="fa fa-hand-o-right" style="font-size:24px"></i>
+
+    </button>
+
+
+</div>
+
+
+
+<!-- =========================================
+     LOAD BOT CONFIGURATION
+========================================== -->
+
+<script src="bots.js"></script>
+
+
+
+<script>
+
+/* =====================================================
+   CURRENT LIST
+===================================================== */
+
+let currentList = 0;
+
+
+/* =====================================================
+   CREATE CATEGORY LIST
+===================================================== */
+
+function createCategories() {
+
+    const container =
+        document.getElementById(
+            "category-container"
+        );
+
+
+    container.innerHTML = "";
+
+
+    Object.keys(botLists).forEach(function(key) {
+
+        const list =
+            botLists[key];
+
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "list-card";
+
+
+        card.onclick = function() {
+
+            openList(Number(key));
+
+        };
+
+
+        card.innerHTML = `
+
+            <div class="list-left">
+
+                <div class="list-icon">
+                    ${list.icon || "🤖"}
+                </div>
+
+                <div>
+
+                    <div class="list-name">
+                        ${list.title}
+                    </div>
+
+                    <div class="list-description">
+                        ${list.description || ""}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                <i class="fa fa-angle-right"></i>
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+
+/* =====================================================
+   OPEN LIST
+===================================================== */
+
+function openList(listNumber) {
+
+    currentList =
+        listNumber;
+
+    showBotPage();
+
+}
+
+
+
+/* =====================================================
+   SHOW BOT PAGE
+===================================================== */
+
+function showBotPage() {
+
+    const homePage =
+        document.getElementById(
+            "home-page"
+        );
+
+
+    const botPage =
+        document.getElementById(
+            "bot-page"
+        );
+
+
+    const title =
+        document.getElementById(
+            "page-title"
+        );
+
+
+    const container =
+        document.getElementById(
+            "bot-list-container"
+        );
+
+
+    homePage.classList.remove(
+        "active"
+    );
+
+
+    botPage.classList.add(
+        "active"
+    );
+
+
+    const list =
+        botLists[currentList];
+
+
+    if (!list) {
+
+        goHome();
+
+        return;
+
+    }
+
+
+    title.textContent =
+        list.title;
+
+
+    container.innerHTML = "";
+
+
+    list.bots.forEach(function(bot) {
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+
+        card.className =
+            "bot-card";
+
+
+        card.innerHTML = `
+
+            <div class="bot-info">
+
+                <div class="bot-name">
+                    ${bot.name}
+                </div>
+
+                <div class="bot-description">
+                    ${bot.description || ""}
+                </div>
+
+            </div>
+
+            <a
+                class="open-button"
+                href="${bot.link}"
+                target="_blank"
+                rel="noopener">
+
+                Open ↗
+
+            </a>
+
+        `;
+
+
+        container.appendChild(
+            card
+        );
+
+    });
+
+
+    const totalLists =
+        Object.keys(botLists).length;
+
+
+    document
+        .getElementById(
+            "page-counter"
+        )
+        .textContent =
+            "Bot List " +
+            currentList +
+            " of " +
+            totalLists;
+
+
+    updateNavigation();
+
+}
+
+
+
+/* =====================================================
+   HOME
+===================================================== */
+
+function goHome() {
+
+    currentList = 0;
+
+
+    document
+        .getElementById(
+            "bot-page"
+        )
+        .classList.remove(
+            "active"
+        );
+
+
+    document
+        .getElementById(
+            "home-page"
+        )
+        .classList.add(
+            "active"
+        );
+
+
+    document
+        .getElementById(
+            "page-title"
+        )
+        .textContent =
+            "Telegram Neural Network Bot";
+
+
+    updateNavigation();
+
+}
+
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+function goBack() {
+
+    if (currentList === 0) {
+
+        return;
+
+    }
+
+
+    if (currentList === 1) {
+
+        goHome();
+
+        return;
+
+    }
+
+
+    currentList--;
+
+    showBotPage();
+
+}
+
+
+
+/* =====================================================
+   FORWARD
+===================================================== */
+
+function goForward() {
+
+    const totalLists =
+        Object.keys(botLists).length;
+
+
+    if (currentList === 0) {
+
+        openList(1);
+
+        return;
+
+    }
+
+
+    if (currentList < totalLists) {
+
+        currentList++;
+
+        showBotPage();
+
+    }
+
+}
+
+
+
+/* =====================================================
+   UPDATE NAVIGATION
+===================================================== */
+
+function updateNavigation() {
+
+    const backButton =
+        document.getElementById(
+            "back-button"
+        );
+
+
+    const forwardButton =
+        document.getElementById(
+            "forward-button"
+        );
+
+
+    const totalLists =
+        Object.keys(botLists).length;
+
+
+    backButton.disabled =
+        currentList === 0;
+
+
+    forwardButton.disabled =
+        currentList >= totalLists;
+
+}
+
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+createCategories();
+
+updateNavigation();
+
+</script>
+
+
+</body>
+
+</html>
