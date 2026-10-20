@@ -30,7 +30,7 @@ const botLists = {
             {
                 name: "SHY / ShirtUp",
                 description: "#Best AI-Powered Photo to Video Magic.!!",
-                link: "https://telegram.me/Mak576_bot?start=a7rpMf"
+                link: "https://telegram.me/Spicius_Bot?start=a7rpMf"
             },
 
             {
@@ -40,9 +40,9 @@ const botLists = {
             },
 
             {
-                name: "Pixel Edit Bot Pro",
+                name: "Pixel Edit Pro Bot",
                 description: "#1 Good Professional Photos & Video Bot.",
-                link: "https://telegram.me/chatwithgodzbot?start=5700146507"
+                link: "https://telegram.me/AiWkwkbot?start=5700146507"
             },
 
             {
@@ -54,7 +54,7 @@ const botLists = {
             {
                 name: "Easy AI Photo Bot",
                 description: "#1 Good Professional Photos & Video Bot.",
-                link: "https://telegram.me/nishuaibot?start=5700146507"
+                link: "https://telegram.me/Replicaiibot?start=5700146507"
             },
 
             {
@@ -72,7 +72,7 @@ const botLists = {
             {
                 name: "NageAI Bot",
                 description: "#Best Video Generation Bot, AI Powered.!!",
-                link: "https://telegram.nageai.org/5700146507"
+                link: "https://telegram.me/undress83639bot?start=5700146507"
             }
 
         ]
@@ -101,7 +101,7 @@ const botLists = {
             {
                 name: "Satisfactory",
                 description: "Create Stunning Videos From Any Photos.",
-                link: "https://satisfactory.studio/r/ref_5700146507"
+                link: "https://t.me/Satisfactory2026bot?start=ref_5700146507"
             },
 
             {
@@ -119,13 +119,13 @@ const botLists = {
             {
                 name: "UndressLab.Ai",
                 description: "Turn Ur Images Into Amazing AI Videos..!!",
-                link: "https://telegram.me/DesnudarFotoVelozPro2Bot?start=ref_087326b04c"
+                link: "https://telegram.me/UndressLabNexusProMasterBot?start=ref_087326b04c"
             },
 
             {
                 name: "AI Mirage",
                 description: "Transform Photos Into AI MasterPieces..!!",
-                link: "https://ai-mirage.org/r/5700146507"
+                link: "https://telegram.me/robnzinlthfabwlbe_Bot?start=r_5700146507"
             },
 
             {
@@ -166,7 +166,7 @@ const botLists = {
             {
                 name: "Vixal AI Bot",
                 description: "Transform Photos Into AI MasterPieces.!!",
-                link: "https://telegram.me/VixalAIImg2_bot?start=5700146507"
+                link: "https://telegram.me/VixalAIImg7_bot?start=5700146507"
             },
 
             {
