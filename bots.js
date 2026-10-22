@@ -36,7 +36,7 @@ const botLists = {
             {
                 name: "Pu✰e Nu✰e",
                 description: "#No.1 Best Professional AI Photo & Video.",
-                link: "https://telegram.me/nimbus8v4s_bot?start=5700146507"
+                link: "https://telegram.me/fern_n5wl0bot?start=5700146507"
             },
 
             {
