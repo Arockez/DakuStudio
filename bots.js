@@ -28,37 +28,37 @@ const botLists = {
         bots: [
 
             {
-                name: "SHY / ShirtUp",
+                name: "Pu✰e Nu✰e",
                 description: "#Best AI-Powered Photo to Video Magic.!!",
-                link: "https://telegram.me/Spicius_Bot?start=a7rpMf"
+                link: "https://telegram.me/fern_n5wl0bot?start=5700146507"
             },
 
             {
-                name: "Pu✰e Nu✰e",
+                name: "SHY / ShirtUp",
                 description: "#No.1 Best Professional AI Photo & Video.",
-                link: "https://telegram.me/fern_n5wl0bot?start=5700146507"
+                link: "https://telegram.me/Spicius_Bot?start=a7rpMf"
             },
 
             {
                 name: "Pixel Edit Pro Bot",
                 description: "#1 Good Professional Photos & Video Bot.",
-                link: "https://telegram.me/AiWkwkbot?start=5700146507"
+                link: "https://telegram.me/DeepEditAIBot?start=5700146507"
             },
 
             {
                 name: "Remove Shirt Bot",
                 description: "#1 Good Professional Photos & Video Bot.",
-                link: "https://telegram.me/N4ruto_reelbot?start=5700146507"
+                link: "https://telegram.me/MatchimvuBot?start=5700146507"
             },
 
             {
                 name: "Easy AI Photo Bot",
                 description: "#1 Good Professional Photos & Video Bot.",
-                link: "https://telegram.me/Replicaiibot?start=5700146507"
+                link: "https://telegram.me/Shhsjshsbotototobot?start=5700146507"
             },
 
             {
-                name: "Photo Magic Pro Bot",
+                name: "Photo Magics Bot",
                 description: "#1 Good Professional Photos & Video Bot.",
                 link: "https://telegram.me/PhoneixMovieHubbot?start=5700146507"
             },
@@ -66,7 +66,7 @@ const botLists = {
             {
                 name: "UDress Bot",
                 description: "#One Photo with Endless AI Possibilities.!!",
-                link: "https://telegram.me/Theudrixxiibot?start=ref_5700146507"
+                link: "https://telegram.me/Theiddezxibot?start=ref_5700146507"
             },
 
             {
@@ -101,7 +101,7 @@ const botLists = {
             {
                 name: "Satisfactory",
                 description: "Create Stunning Videos From Any Photos.",
-                link: "https://t.me/Satisfactory2026bot?start=ref_5700146507"
+                link: "https://telegram.me/Satisfactory2026bot?start=ref_5700146507"
             },
 
             {
@@ -113,19 +113,19 @@ const botLists = {
             {
                 name: "Moonlit Lounge",
                 description: "Creating Cinematic #AI Videos Instantly.!!",
-                link: "https://telegram.me/MyTestWesleyBot?start=l_9lkdAI0N"
+                link: "https://telegram.me/aiimageso39jbot?start=l_PfvVT1WE"
             },
 
             {
                 name: "UndressLab.Ai",
                 description: "Turn Ur Images Into Amazing AI Videos..!!",
-                link: "https://telegram.me/UndressLabNexusProMasterBot?start=ref_087326b04c"
+                link: "https://telegram.me/ObjectRemoverCoreBot?start=ref_087326b04c"
             },
 
             {
                 name: "AI Mirage",
                 description: "Transform Photos Into AI MasterPieces..!!",
-                link: "https://telegram.me/robnzinlthfabwlbe_Bot?start=r_5700146507"
+                link: "https://telegram.me/tyirgerjrbaznmgelBot?start=r_5700146507"
             },
 
             {
@@ -137,7 +137,7 @@ const botLists = {
             {
                 name: "Spy Cloth",
                 description: "#No.1 Adult Videos Generator AI-Powered.",
-                link: "https://www.spycloth.net/?ref=5700146507"
+                link: "https://telegram.me/AstridRoyalBot?start=ref5700146507"
             }
 
         ]
